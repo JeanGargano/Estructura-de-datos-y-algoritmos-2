@@ -3,7 +3,7 @@
 
 let a = parseInt(prompt("Escriba un numero entero"))
 
-// Old Regular Function
+//Old Regular Function
 function oldRegularFunction(a){
     let res = ""
     if (a%2 === 0){
@@ -16,7 +16,7 @@ function oldRegularFunction(a){
 }
 oldRegularFunction(a)
 
-// New Regular Function
+//New Regular Function
 const newRegularFunction = function(a){
     let res = ""
     if (a%2 === 0){
@@ -30,7 +30,7 @@ const newRegularFunction = function(a){
 }
 newRegularFunction(a)
 
-// Arrow Function
+//Arrow Function
 const arrowFunction = (a) =>{
     let res = ""
     if (a%2 === 0){
