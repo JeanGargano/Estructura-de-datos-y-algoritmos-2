@@ -1,0 +1,90 @@
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding: 20px;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.form-section {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    max-width: 350px; /* Limita el ancho máximo del contenedor */
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho total */
+}
+
+h2 {
+    color: #f0f0f0;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #d4d4d4;
+}
+
+input[type="number"] {
+    width: 100%; /* Ajusta el ancho al 100% */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #444;
+    color: #fff;
+    font-size: 16px;
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho total */
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #5c5c5c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4a4a4a;
+}
+
+.text-area {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor padre */
+    padding: 10px;
+    margin-top: 15px; /* Agrega margen superior para separar del botón */
+    border: none;
+    border-radius: 4px;
+    background-color: #444;
+    color: #fff;
+    font-size: 16px;
+    resize: none;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
