@@ -1,12 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import FirstApp from './App.jsx';
-import './index.css';
+import { Father } from './Father';
 
-const value = 10; 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <FirstApp value={value} />
+    <Father />
   </StrictMode>
 );

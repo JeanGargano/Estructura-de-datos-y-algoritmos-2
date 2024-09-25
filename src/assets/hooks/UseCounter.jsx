@@ -1,9 +1,6 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-const FirstApp = ({value}) => {
+const UseCounter = ({value}) => {
 
   const [counter, setCounter] = useState(value)
 
@@ -31,4 +28,4 @@ const FirstApp = ({value}) => {
   
 }
 
-export default FirstApp
+export default UseCounter
