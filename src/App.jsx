@@ -1,10 +1,16 @@
-import { useState } from 'react'
-import Calculator from './components/calculator'
+import React from 'react';
+import Title from './components/Title';
+import Calculator from './components/calculator';
 
 function App() {
   return (
-    <Calculator/>
-  )  
+    <>
+      <Title />
+      <div id="contenedor">
+        <Calculator />
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;
