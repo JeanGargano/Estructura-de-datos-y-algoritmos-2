@@ -1,19 +1,23 @@
-import './App.css'
-import { useCounter } from './hooks/useCounter';
+import React from 'react';
+import { useFetch } from './hooks/useFetch';
 
-const FirstApp = ({ value }) => {
-  // Usa el hook personalizado
-  const { counter, increment, decrement, reset } = useCounter(value);
+const App = () => {
+  const { data, isLoading, hasError } = useFetch('https://api.example.com/data');
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (hasError) {
+    return <div>Error: {hasError}</div>;
+  }
 
   return (
-    <>
-      <h1>Counter</h1>
-      <span>{counter}</span>
-      <button onClick={increment}> +1 </button>
-      <button onClick={decrement}> -1 </button>
-      <button onClick={reset}> Reinicio </button>
-    </>
+    <div>
+      <h1>Data:</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </div>
   );
 };
 
-export default FirstApp;
+export default App;
