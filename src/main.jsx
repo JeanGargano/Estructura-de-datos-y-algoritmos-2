@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import FirstApp from './App.jsx';
+import FirstApp from './FirstApp.jsx';
 import './index.css';
 
 const value = 10; 
