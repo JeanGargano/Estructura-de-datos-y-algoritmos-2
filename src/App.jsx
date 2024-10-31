@@ -1,35 +1,44 @@
-// App.jsx
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './components/AuthContext';
-import NavComponent from './components/NavComponent';
-import Home from './components/Home';
-import About from './components/About';
-import Services from './components/Services';
-import Contact from './components/Contact';
-import Login from './components/Login';
-
-const PrivateRoute = ({ element }) => {
-    const { state } = useAuth();
-    return state.isAuthenticated ? element : <Navigate to="/login" />;
-};
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { increment, decrement, incrementBy } from "./Store/CounterSlice";
+import "./App.css"
 
 const App = () => {
-    return (
-        <AuthProvider>
-            <Router>
-                <NavComponent />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/services" element={<Services />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/private" element={<PrivateRoute element={<h2>This is a private page</h2>} />} />
-                </Routes>
-            </Router>
-        </AuthProvider>
-    );
-};
+    const { counter } = useSelector(state => state.counter);
+    const dispatch = useDispatch();
 
-export default App;
+    return (
+        <div className="container">
+            <h1>App</h1>
+            <hr />
+            <span>Counter is: {counter}</span>
+            <div>
+                <button
+                    className="btn btn-primary"
+                    onClick={() => dispatch(increment())}
+                >
+                    +1
+                </button>
+                <button
+                    className="btn btn-danger"
+                    onClick={() => dispatch(decrement())}
+                >
+                    -1
+                </button>
+                <button
+                    className="btn btn-success"
+                    onClick={() => {
+                        const value = prompt("Enter a value to increment by:");
+                        if (value) {
+                            dispatch(incrementBy(Number(value)));
+                        }
+                    }}
+                >
+                    Increment By
+                </button>
+            </div>
+        </div>
+    );
+    
+}
+export default App
