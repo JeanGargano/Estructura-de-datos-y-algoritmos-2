@@ -1,44 +1,17 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement, incrementBy } from "./Store/CounterSlice";
-import "./App.css"
+import { Routes, Route } from "react-router-dom";
+import Login from "./components/Login"
+import Register from "./components/Register";
+import Home from "./components/Home"
+import { Navigate } from "react-router-dom";
 
-const App = () => {
-    const { counter } = useSelector(state => state.counter);
-    const dispatch = useDispatch();
-
-    return (
-        <div className="container">
-            <h1>App</h1>
-            <hr />
-            <span>Counter is: {counter}</span>
-            <div>
-                <button
-                    className="btn btn-primary"
-                    onClick={() => dispatch(increment())}
-                >
-                    +1
-                </button>
-                <button
-                    className="btn btn-danger"
-                    onClick={() => dispatch(decrement())}
-                >
-                    -1
-                </button>
-                <button
-                    className="btn btn-success"
-                    onClick={() => {
-                        const value = prompt("Enter a value to increment by:");
-                        if (value) {
-                            dispatch(incrementBy(Number(value)));
-                        }
-                    }}
-                >
-                    Increment By
-                </button>
-            </div>
-        </div>
+export default function App() {
+    return ( 
+            <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/*" element={<Navigate to="/"/>} />
+            </Routes>
+        
     );
-    
 }
-export default App
