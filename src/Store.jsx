@@ -1,14 +1,15 @@
-// src/Store.jsx
 import { configureStore } from '@reduxjs/toolkit';
-import pokemonReducer from './features/pokemon/pokemon';
-import todoSlice from './features/todo/todoSlice';
+import { pokemonApi } from './features/pokemon/pokemonApi';
+import todoReducer from './features/todo/todoSlice'; // Asegúrate de importar el reducer de los todos
 
 const store = configureStore({
   reducer: {
-    pokemon: pokemonReducer,
-    todos: todoSlice,
+    [pokemonApi.reducerPath]: pokemonApi.reducer, // Reducer de la API de Pokémon
+    todos: todoReducer, // Reducer de los todos
   },
+  // Agregar el middleware para manejar la caché, la invalidación, etc.
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(pokemonApi.middleware), // Añadir el middleware de la API
 });
 
-// Asegúrate de exportarlo correctamente
 export default store;

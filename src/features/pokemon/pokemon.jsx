@@ -1,4 +1,3 @@
-// src/features/pokemon/pokemonSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchPokemon = createAsyncThunk(

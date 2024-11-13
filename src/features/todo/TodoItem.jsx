@@ -1,4 +1,3 @@
-// src/features/todo/TodoItem.js
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteTodo } from './todoSlice';

@@ -1,7 +1,6 @@
-// main.jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import store from './Store';  // Asegúrate de que la ruta es correcta
+import store from './Store';  
 import { Provider } from 'react-redux';
 import App from './App';
 

@@ -1,43 +1,49 @@
-// src/features/pokemon/PokemonViewer.js
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchPokemon } from './pokemon';
+import { useGetPokemonQuery } from './pokemonApi';
 
-const PokemonViewer = () => {
-  const [pokemonId, setPokemonId] = useState(1);
-  const dispatch = useDispatch();
-  const { data, isLoading, error } = useSelector((state) => state.pokemon);
+function PokemonViewer() {
+  const [id, setId] = useState(''); 
+  const { data, error, isLoading } = useGetPokemonQuery(id, {
+    skip: !id, 
+  });
 
-  const handleFetchPokemon = () => {
-    dispatch(fetchPokemon(pokemonId));
+ 
+  const handleInputChange = (e) => {
+    setId(e.target.value);
   };
+
+  
+  if (!id || isNaN(id) || id <= 0) {
+    return (
+      <div>
+        <input
+          type="number"
+          placeholder="Ingresa un ID de Pokémon"
+          value={id}
+          onChange={handleInputChange}
+        />
+        <div>Error: ID de Pokémon no válido. Debe ser un número positivo.</div>
+      </div>
+    );
+  }
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div>
-      <h1>Pokémon Viewer</h1>
       <input
         type="number"
-        value={pokemonId}
-        onChange={(e) => setPokemonId(e.target.value)}
-        min="1"
-        className="form-control mb-2"
-        placeholder="Enter Pokémon ID"
+        placeholder="Ingresa un ID de Pokémon"
+        value={id}
+        onChange={handleInputChange}
       />
-      <button onClick={handleFetchPokemon} className="btn btn-primary mb-3">
-        Fetch Pokémon
-      </button>
-      {isLoading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
-      {data && (
-        <div>
-          <h2>{data.name}</h2>
-          <img src={data.sprites.front_default} alt={data.name} />
-          <p>Height: {data.height}</p>
-          <p>Weight: {data.weight}</p>
-        </div>
-      )}
+      <h2>{data.name}</h2>
+      <img src={data.sprites.front_default} alt={data.name} />
+      <p>Altura: {data.height} decímetros</p>
+      <p>Peso: {data.weight} hectogramos</p>
     </div>
   );
-};
+}
 
 export default PokemonViewer;
