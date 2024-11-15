@@ -1,20 +1,15 @@
-
 import { initializeApp } from "firebase/app";
-import {getAuth} from "firebase/auth";   
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from "firebase/firestore";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyArYBHkF37NcCCsMkkk6MVC-apNSe8MsH0",
-    authDomain: "challenge14-a850b.firebaseapp.com",
-    projectId: "challenge14-a850b",
-    storageBucket: "challenge14-a850b.firebasestorage.app",
-    messagingSenderId: "7878452055",
-    appId: "1:7878452055:web:0b02cc5d2b181cacf35412",
-    measurementId: "G-QTZQPC1GVC"
-  };
-  
-  // Initialize Firebase
-  export const app = initializeApp(firebaseConfig);
-  export const auth = getAuth(app);
+  apiKey: "AIzaSyAkVgZcx8BNRR20p94B15K1IJCAzGruzUU",
+  authDomain: "database-1d745.firebaseapp.com",
+  databaseURL: "https://database-1d745-default-rtdb.firebaseio.com",
+  projectId: "database-1d745",
+  storageBucket: "database-1d745.appspot.com",
+  messagingSenderId: "1099170853290",
+  appId: "1:1099170853290:web:de483009c8cfa991367bd3",
+};
+
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app); 

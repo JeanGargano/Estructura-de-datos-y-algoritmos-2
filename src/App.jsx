@@ -1,17 +1,15 @@
-import { Routes, Route } from "react-router-dom";
-import Login from "./components/Login"
-import Register from "./components/Register";
-import Home from "./components/Home"
-import { Navigate } from "react-router-dom";
+import React from "react";
+import { Todos } from "./components/Todos";
+import { TodosForm } from "./components/TodosForm";
+import "./Styles.css"
 
-export default function App() {
-    return ( 
-            <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/*" element={<Navigate to="/"/>} />
-            </Routes>
-        
-    );
+function App() {
+  return (
+    <div>
+      <TodosForm />
+      <Todos />
+    </div>
+  );
 }
+
+export { App };
